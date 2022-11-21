@@ -12,7 +12,7 @@ cur = conn.cursor()
 
 #Create table 
 sql_create = """
-CREATE TABLE Employe_DETAILS(
+CREATE TABLE Employee_DETAILS(
     FIRST_NAME VARCHAR2(50),
     LAST_NAME VARCHAR2(50),
     COMPANY VARCHAR2(50),
@@ -27,7 +27,7 @@ try:
 
     try:
        curl = conn.cursor()
-       sql_insert = """ INSERT INTO Employe_DETAILS VALUES ('Steave', 'Jobs', 'Apple', 56)"""    #Insert data 
+       sql_insert = """ INSERT INTO Employee_DETAILS VALUES ('Steave', 'Jobs', 'Apple', 56)"""    #Insert data 
        curl.execute(sql_insert)
     except Exception as err:
        print ('Error while inserting data ', err)
@@ -37,7 +37,7 @@ try:
         
     try:
        curl = conn.cursor()
-       sql= """ SELECT * FROM Employe_DETAILS """                      #Fetch the data 
+       sql= """ SELECT * FROM Employee_DETAILS """                      #Fetch the data 
        curl.execute(sql)
        row = cur.fetchall()
        print (row)
@@ -53,18 +53,18 @@ try:
     
     #run sql query
 
-    sql_query = pd.read_sql_query(""'select * from employee""", conn)
+    sql_query = pd.read_sql_query(""'select * from Employee""", conn)
 
     #Writw the dataframe to csv file
 
-    sql_query.to.csv (r'D:\D\python\employee_data.csv', index = False)   #Export data into csv formart
+    sql_query.to.csv (r'D:\D\python\Employee_data.csv', index = False)   #Export data into csv formart
                
 finally:
 
     conn.close()
     
     
-def schedule():                                                      #Scheduling to run the script everyday at 12AM
+def schedule():                                                      #Scheduling to run the script everyday at  12AM
     print("execute the everydat at 00:00")
     
 schedule.every().day.at("00:00").do(schedule)
@@ -74,8 +74,7 @@ while 1:
     time.sleep(1)
     
     
-    
-    
+
     
     
     
